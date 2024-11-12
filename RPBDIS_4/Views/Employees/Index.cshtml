@@ -1,0 +1,25 @@
+﻿@model IEnumerable<RPBDIS_4.Models.Employee>
+
+<h2>Employees</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Position</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.FullName</td> <!-- Отображаем полное имя сотрудника -->
+                <td>@employee.Position</td> <!-- Отображаем должность -->
+                <td>
+                    <a asp-action="Details" asp-route-id="@employee.EmployeeId">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RPBDIS_4.Models.MaintenanceSchedule>
+
+<h2>Maintenance Schedules</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Equipment</th>
+            <th>Maintenance Type</th>
+            <th>Scheduled Date</th>
+            <th>Estimated Cost</th>
+            <th>Responsible Employee</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var schedule in Model)
+        {
+            <tr>
+                <td>@schedule.Equipment?.Name</td> <!-- Отображаем название оборудования -->
+                <td>@schedule.MaintenanceType?.Description</td> <!-- Отображаем описание типа обслуживания -->
+                <td>@schedule.ScheduledDate?.ToString("d")</td> <!-- Форматируем дату планового обслуживания -->
+                <td>@schedule.EstimatedCost</td>
+                <td>@schedule.ResponsibleEmployee?.FullName</td> <!-- Отображаем имя сотрудника -->
+                <td>
+                    <a asp-action="Details" asp-route-id="@schedule.ScheduleId">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

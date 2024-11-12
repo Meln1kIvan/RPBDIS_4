@@ -1,0 +1,23 @@
+﻿@model IEnumerable<RPBDIS_4.Models.MaintenanceType>
+
+<h2>Maintenance Types</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var maintenanceType in Model)
+        {
+            <tr>
+                <td>@maintenanceType.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@maintenanceType.MaintenanceTypeId">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RPBDIS_4.Models.CompletedWork>
+
+<h2>Completed Works</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Equipment</th>
+            <th>Maintenance Type</th>
+            <th>Completion Date</th>
+            <th>Actual Cost</th>
+            <th>Responsible Employee</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var work in Model)
+        {
+            <tr>
+                <td>@work.Equipment?.Name</td> <!-- Используем навигационное свойство Name из Equipment -->
+                <td>@work.MaintenanceType?.Description</td> <!-- Используем Description из MaintenanceType -->
+                <td>@work.CompletionDate?.ToString("d")</td> <!-- Форматируем дату завершения -->
+                <td>@work.ActualCost</td>
+                <td>@work.ResponsibleEmployee?.FullName</td> <!-- Используем FullName из Employee -->
+                <td>
+                    <a asp-action="Details" asp-route-id="@work.CompletedMaintenanceId">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

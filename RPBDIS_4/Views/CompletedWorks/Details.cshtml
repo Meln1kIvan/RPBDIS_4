@@ -1,0 +1,28 @@
+﻿@model RPBDIS_4.Models.CompletedWork
+
+<h2>Completed Work Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Equipment</th>
+        <td>@Model.Equipment?.Name</td> <!-- Отображаем название оборудования -->
+    </tr>
+    <tr>
+        <th>Maintenance Type</th>
+        <td>@Model.MaintenanceType?.Description</td> <!-- Отображаем описание типа обслуживания -->
+    </tr>
+    <tr>
+        <th>Completion Date</th>
+        <td>@Model.CompletionDate?.ToString("d")</td>
+    </tr>
+    <tr>
+        <th>Actual Cost</th>
+        <td>@Model.ActualCost</td>
+    </tr>
+    <tr>
+        <th>Responsible Employee</th>
+        <td>@Model.ResponsibleEmployee?.FullName</td> <!-- Отображаем имя сотрудника -->
+    </tr>
+</table>
+
+<a asp-action="Index">Back to List</a>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<RPBDIS_4.Models.Equipment>
+
+<h2>Equipment List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Inventory Number</th>
+            <th>Name</th>
+            <th>Start Date</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var equipment in Model)
+        {
+            <tr>
+                <td>@equipment.InventoryNumber</td>
+                <td>@equipment.Name</td>
+                <td>@equipment.StartDate?.ToString("d")</td>
+                <td>@equipment.Location</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@equipment.EquipmentId">View Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
