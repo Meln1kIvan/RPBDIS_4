@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RPBDIS_4")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5da8f705084b88ace55433fbdcbaf5ab665be00a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02862eb97c10a2baba28296d516fdcc8650a3d33")]
 [assembly: System.Reflection.AssemblyProductAttribute("RPBDIS_4")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RPBDIS_4")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

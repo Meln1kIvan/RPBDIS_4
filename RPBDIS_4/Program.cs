@@ -14,7 +14,7 @@ builder.Services.AddControllersWithViews();
 // Добавляем распределённое кэширование для использования кэширования в контроллерах
 builder.Services.AddDistributedMemoryCache();
 
-// Настраиваем кэширование с использованием сессий, если необходимо
+// Настраиваем сессии, если необходимо
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(20); // Время жизни сессии
@@ -22,9 +22,10 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+// Создаем объект приложения
 var app = builder.Build();
 
-// Используем middleware для обработки ошибок (в режиме production)
+// Настройка Middleware для обработки ошибок в режиме Production
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -32,20 +33,22 @@ if (!app.Environment.IsDevelopment())
 }
 
 // Настройка Middleware для инициализации базы данных
-app.UseMiddleware<RPBDIS_4.Middlewares.DatabaseInitializerMiddleware>();
+app.UseMiddleware<DatabaseInitializerMiddleware>();
 
-// Middleware для обработки статических файлов, HTTPS редиректов и сессий
+// Middleware для обработки HTTPS редиректов и статических файлов
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+// Включаем поддержку сессий
 app.UseSession();
 
-// Используем маршрутизацию для MVC
+// Включаем маршрутизацию
 app.UseRouting();
 
 // Настраиваем авторизацию (если требуется)
 app.UseAuthorization();
 
-// Определение стандартного маршрута для MVC (по умолчанию)
+// Определение стандартного маршрута для MVC
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
