@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RPBDIS_4.Models;
-
+ 
 public class CompletedWork
 {
     [Key]
